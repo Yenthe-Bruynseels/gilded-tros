@@ -9,11 +9,11 @@ class GildedTros {
 
     public void updateQuality() {
         for (Item item : items) {
-            if (!item.name.equals("Good Wine")
-                    && !item.name.equals("Backstage passes for Re:Factor")
-                    && !item.name.equals("Backstage passes for HAXX")) {
+            if (!"Good Wine".equals(item.name)
+                    && !"Backstage passes for Re:Factor".equals(item.name)
+                    && !"Backstage passes for HAXX".equals(item.name)) {
                 if (item.quality > 0) {
-                    if (!item.name.equals("B-DAWG Keychain")) {
+                    if (!"B-DAWG Keychain".equals(item.name)) {
                         item.quality = item.quality - 1;
                     }
                 }
@@ -21,7 +21,7 @@ class GildedTros {
                 if (item.quality < 50) {
                     item.quality = item.quality + 1;
 
-                    if (item.name.equals("Backstage passes for Re:Factor") || item.name.equals("Backstage passes for HAXX")) {
+                    if ("Backstage passes for Re:Factor".equals(item.name) || "Backstage passes for HAXX".equals(item.name)) {
                         if (item.sellIn < 11) {
                             if (item.quality < 50) {
                                 item.quality = item.quality + 1;
@@ -37,15 +37,15 @@ class GildedTros {
                 }
             }
 
-            if (!item.name.equals("B-DAWG Keychain")) {
+            if (!"B-DAWG Keychain".equals(item.name)) {
                 item.sellIn = item.sellIn - 1;
             }
 
             if (item.sellIn < 0) {
-                if (!item.name.equals("Good Wine")) {
-                    if (!item.name.equals("Backstage passes for Re:Factor") && !item.name.equals("Backstage passes for HAXX")) {
+                if (!"Good Wine".equals(item.name)) {
+                    if (!"Backstage passes for Re:Factor".equals(item.name) && !"Backstage passes for HAXX".equals(item.name)) {
                         if (item.quality > 0) {
-                            if (!item.name.equals("B-DAWG Keychain")) {
+                            if (!"B-DAWG Keychain".equals(item.name)) {
                                 item.quality = item.quality - 1;
                             }
                         }
