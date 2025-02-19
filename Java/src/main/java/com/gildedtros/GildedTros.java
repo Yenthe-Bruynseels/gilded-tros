@@ -37,9 +37,7 @@ class GildedTros {
                 }
             }
 
-            if (!"B-DAWG Keychain".equals(item.name)) {
-                item.sellIn = item.sellIn - 1;
-            }
+            updateSellIn(item);
 
             if (item.sellIn < 0) {
                 if (!"Good Wine".equals(item.name)) {
@@ -58,6 +56,12 @@ class GildedTros {
                     }
                 }
             }
+        }
+    }
+
+    private void updateSellIn(Item item) {
+        if (!"B-DAWG Keychain".equals(item.name)) {
+            item.sellIn = item.sellIn - 1;
         }
     }
 }
