@@ -15,22 +15,22 @@ class GildedTros {
                     && !"Backstage passes for Re:Factor".equals(item.name)
                     && !"Backstage passes for HAXX".equals(item.name)) {
                 if (item.quality > 0) {
-                    item.quality = item.quality - 1;
+                    item.quality--;
                 }
             } else {
                 if (item.quality < 50) {
-                    item.quality = item.quality + 1;
+                    item.quality++;
 
                     if ("Backstage passes for Re:Factor".equals(item.name) || "Backstage passes for HAXX".equals(item.name)) {
                         if (item.sellIn < 11) {
                             if (item.quality < 50) {
-                                item.quality = item.quality + 1;
+                                item.quality++;
                             }
                         }
 
                         if (item.sellIn < 6) {
                             if (item.quality < 50) {
-                                item.quality = item.quality + 1;
+                                item.quality++;
                             }
                         }
                     }
@@ -43,14 +43,14 @@ class GildedTros {
                 if (!"Good Wine".equals(item.name)) {
                     if (!"Backstage passes for Re:Factor".equals(item.name) && !"Backstage passes for HAXX".equals(item.name)) {
                         if (item.quality > 0) {
-                            item.quality = item.quality - 1;
+                            item.quality--;
                         }
                     } else {
                         item.quality = 0;
                     }
                 } else {
                     if (item.quality < 50) {
-                        item.quality = item.quality + 1;
+                        item.quality++;
                     }
                 }
             }
@@ -58,6 +58,6 @@ class GildedTros {
     }
 
     private void updateSellIn(Item item) {
-        item.sellIn = item.sellIn - 1;
+        item.sellIn--;
     }
 }
