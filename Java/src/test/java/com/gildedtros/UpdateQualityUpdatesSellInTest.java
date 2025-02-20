@@ -5,6 +5,13 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static com.gildedtros.ItemNameConstants.BACKSTAGE_PASS_FOR_HAXX;
+import static com.gildedtros.ItemNameConstants.BACKSTAGE_PASS_FOR_RE_FACTOR;
+import static com.gildedtros.ItemNameConstants.B_DAWG_KEYCHAIN;
+import static com.gildedtros.ItemNameConstants.DUPLICATE_CODE;
+import static com.gildedtros.ItemNameConstants.GOOD_WINE;
+import static com.gildedtros.ItemNameConstants.LONG_METHODS;
+import static com.gildedtros.ItemNameConstants.UGLY_VARIABLE_NAMES;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,13 +20,12 @@ public class UpdateQualityUpdatesSellInTest {
     @ParameterizedTest
     @NullAndEmptySource
     @ValueSource(strings = {
-            "Backstage passes for Re:Factor",
-            "Long Methods",
-            "Good Wine",
+            BACKSTAGE_PASS_FOR_RE_FACTOR,
+            LONG_METHODS,
+            GOOD_WINE,
             "eenItem",
-            "Duplicate Code",
-            "Backstage passes for HAXX",
-            "Ugly Variable Names"})
+            DUPLICATE_CODE,
+            BACKSTAGE_PASS_FOR_HAXX})
     void updateQualityLowersSellIn(String name) {
         Item[] items = new Item[] {
                 new Item(name, 2, 5)
@@ -35,7 +41,7 @@ public class UpdateQualityUpdatesSellInTest {
     @Test
     void updateQualityDoesNotLowerSellInForLegendaryItems() {
         Item[] items = new Item[] {
-                new Item("B-DAWG Keychain", 2, 5)
+                new Item(B_DAWG_KEYCHAIN, 2, 5)
         };
 
         GildedTros gildedTros = new GildedTros(items);
@@ -48,15 +54,15 @@ public class UpdateQualityUpdatesSellInTest {
     @Test
     void combinationOfItemsUpdatesAllQualitiesCorrectly() {
         Item[] items = new Item[] {
-                new Item("Backstage passes for Re:Factor", 11, 5),
-                new Item("B-DAWG Keychain", 11, 5),
-                new Item("Long Methods", 11, 5),
-                new Item("Good Wine", 11, 5),
+                new Item(BACKSTAGE_PASS_FOR_RE_FACTOR, 11, 5),
+                new Item(B_DAWG_KEYCHAIN, 11, 5),
+                new Item(LONG_METHODS, 11, 5),
+                new Item(GOOD_WINE, 11, 5),
                 new Item("eenItem", 11, 5),
                 new Item(null, 11, 5),
-                new Item("Duplicate Code", 11, 5),
-                new Item("Backstage passes for HAXX", 10, 5),
-                new Item("Ugly Variable Names", 11, 5)
+                new Item(DUPLICATE_CODE, 11, 5),
+                new Item(BACKSTAGE_PASS_FOR_HAXX, 10, 5),
+                new Item(UGLY_VARIABLE_NAMES, 11, 5)
         };
 
         GildedTros gildedTros = new GildedTros(items);
