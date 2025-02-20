@@ -13,25 +13,16 @@ class GildedTros {
 
             if (!"Good Wine".equals(item.name)
                     && !isBackstagePass(item)) {
-                if (item.quality > 0) {
-                    item.quality--;
-                }
+                decrementQuality(item);
             } else {
-                if (item.quality < 50) {
-                    item.quality++;
+                incrementQuality(item);
+                if (isBackstagePass(item)) {
+                    if (item.sellIn < 11) {
+                        incrementQuality(item);
+                    }
 
-                    if (isBackstagePass(item)) {
-                        if (item.sellIn < 11) {
-                            if (item.quality < 50) {
-                                item.quality++;
-                            }
-                        }
-
-                        if (item.sellIn < 6) {
-                            if (item.quality < 50) {
-                                item.quality++;
-                            }
-                        }
+                    if (item.sellIn < 6) {
+                        incrementQuality(item);
                     }
                 }
             }
@@ -41,16 +32,12 @@ class GildedTros {
             if (item.sellIn < 0) {
                 if (!"Good Wine".equals(item.name)) {
                     if (!isBackstagePass(item)) {
-                        if (item.quality > 0) {
-                            item.quality--;
-                        }
+                        decrementQuality(item);
                     } else {
                         item.quality = 0;
                     }
                 } else {
-                    if (item.quality < 50) {
-                        item.quality++;
-                    }
+                    incrementQuality(item);
                 }
             }
         }
@@ -63,5 +50,17 @@ class GildedTros {
     private boolean isBackstagePass(Item item) {
         return "Backstage passes for Re:Factor".equals(item.name)
                 || "Backstage passes for HAXX".equals(item.name);
+    }
+
+    private void incrementQuality(Item item) {
+        if (item.quality < 50) {
+            item.quality++;
+        }
+    }
+
+    private void decrementQuality(Item item) {
+        if (item.quality > 0) {
+            item.quality--;
+        }
     }
 }
