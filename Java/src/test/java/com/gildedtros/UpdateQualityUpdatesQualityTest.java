@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UpdateQualityUpdatesQualityTest {
@@ -180,5 +181,26 @@ public class UpdateQualityUpdatesQualityTest {
         gildedTros.updateQuality();
 
         assertEquals(50, gildedTros.items[0].quality);
+    }
+
+    @Test
+    void combinationOfItemsUpdatesAllQualitiesCorrectly() {
+        Item[] items = new Item[] {
+                new Item("Backstage passes for Re:Factor", 11, 5),
+                new Item("Backstage passes for HAXX", 10, 5),
+                new Item("B-DAWG Keychain", 11, 5),
+                new Item("Good Wine", 11, 5),
+                new Item("eenItem", 11, 5)
+        };
+
+        GildedTros gildedTros = new GildedTros(items);
+
+        gildedTros.updateQuality();
+
+        assertAll(() -> assertEquals(6, gildedTros.items[0].quality),
+                () -> assertEquals(7, gildedTros.items[1].quality),
+                () -> assertEquals(5, gildedTros.items[2].quality),
+                () -> assertEquals(6, gildedTros.items[3].quality),
+                () -> assertEquals(4, gildedTros.items[4].quality));
     }
 }
