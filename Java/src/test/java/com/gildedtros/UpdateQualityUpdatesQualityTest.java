@@ -243,7 +243,7 @@ public class UpdateQualityUpdatesQualityTest {
     void combinationOfItemsUpdatesAllQualitiesCorrectly() {
         Item[] items = new Item[] {
                 new Item(BACKSTAGE_PASS_FOR_RE_FACTOR, 11, 5),
-                new Item(B_DAWG_KEYCHAIN, 11, 5),
+                new Item(B_DAWG_KEYCHAIN, 11, 80),
                 new Item(LONG_METHODS, 11, 5),
                 new Item(GOOD_WINE, 11, 5),
                 new Item("eenItem", 11, 5),
@@ -258,7 +258,7 @@ public class UpdateQualityUpdatesQualityTest {
         gildedTros.updateQuality();
 
         assertAll(() -> assertEquals(6, gildedTros.items[0].quality),
-                () -> assertEquals(5, gildedTros.items[1].quality),
+                () -> assertEquals(80, gildedTros.items[1].quality),
                 () -> assertEquals(3, gildedTros.items[2].quality),
                 () -> assertEquals(6, gildedTros.items[3].quality),
                 () -> assertEquals(4, gildedTros.items[4].quality),

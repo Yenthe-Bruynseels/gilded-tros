@@ -41,7 +41,7 @@ public class UpdateQualityUpdatesSellInTest {
     @Test
     void updateQualityDoesNotLowerSellInForLegendaryItems() {
         Item[] items = new Item[] {
-                new Item(B_DAWG_KEYCHAIN, 2, 5)
+                new Item(B_DAWG_KEYCHAIN, 2,80)
         };
 
         GildedTros gildedTros = new GildedTros(items);
@@ -55,7 +55,7 @@ public class UpdateQualityUpdatesSellInTest {
     void combinationOfItemsUpdatesAllQualitiesCorrectly() {
         Item[] items = new Item[] {
                 new Item(BACKSTAGE_PASS_FOR_RE_FACTOR, 11, 5),
-                new Item(B_DAWG_KEYCHAIN, 11, 5),
+                new Item(B_DAWG_KEYCHAIN, 11,80),
                 new Item(LONG_METHODS, 11, 5),
                 new Item(GOOD_WINE, 11, 5),
                 new Item("eenItem", 11, 5),
