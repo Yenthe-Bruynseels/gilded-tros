@@ -11,8 +11,7 @@ class GildedTros {
         for (Item item : items) {
             if ("B-DAWG Keychain".equals(item.name)) continue;
 
-            if (!"Good Wine".equals(item.name)
-                    && !isBackstagePass(item)) {
+            if (!"Good Wine".equals(item.name) && !isBackstagePass(item)) {
                 decrementQuality(item);
             } else {
                 incrementQuality(item);
@@ -48,8 +47,7 @@ class GildedTros {
     }
 
     private boolean isBackstagePass(Item item) {
-        return "Backstage passes for Re:Factor".equals(item.name)
-                || "Backstage passes for HAXX".equals(item.name);
+        return "Backstage passes for Re:Factor".equals(item.name) || "Backstage passes for HAXX".equals(item.name);
     }
 
     private void incrementQuality(Item item) {
